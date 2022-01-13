@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KOZAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FF_LeasingSozlesme">
+          <Key>
+            <PropertyRef Name="SozlesmeId" />
+          </Key>
+          <Property Name="SozlesmeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SozlesmeTarihi" Type="datetime" Nullable="false" />
+          <Property Name="TedarikciKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="TedarikciAd" Type="nvarchar" MaxLength="100" />
+          <Property Name="SozlesmeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SozlesmeTutar" Type="float" Nullable="false" />
+          <Property Name="ParaBirimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vade" Type="int" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+          <Property Name="VadeAraligi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FF_LeasingVade">
+          <Key>
+            <PropertyRef Name="SozlesmeId" />
+            <PropertyRef Name="SozlesmeVade" />
+          </Key>
+          <Property Name="SozlesmeId" Type="int" Nullable="false" />
+          <Property Name="SozlesmeVade" Type="int" Nullable="false" />
+          <Property Name="VadeTarihi" Type="datetime" />
+          <Property Name="VadeTutar" Type="float" Nullable="false" />
+          <Property Name="ParaBirimi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tyTDR_Tedarikci">
+          <Key>
+            <PropertyRef Name="TDR_KodTederikci" />
+          </Key>
+          <Property Name="TDR_KodTederikci" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDR_AdTedarikci" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TDR_AdKisa" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="TDR_AckIlgili" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKT_KodSektor" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDT_TipTedarikci" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="BLG_KodBolge" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDA_KodAdresIRS" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDA_KodAdresFTR" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDA_KodAdresGNL" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDR_AdVergiDairesi" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="TDR_AdVergiNo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="TDR_Adres1" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="TDR_Adres2" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="TDR_Adres3" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="TDR_Tel1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_Tel2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_Fax" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_Mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_AckWeb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_FlagSanal" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagFason" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagNakliyeci" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagYurtdisi" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagAktif" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagIsletme" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_KodReferans" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="PRB_BirimPara" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="PRB_BirimParaFatura" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="ABR_KodAmbarIplikFason" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ABY_KodYerIplikFason" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="AST_TipSiparis" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="KTG_KodKategori" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ONC_TipOncelik" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="ODT_TipOdeme" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="TTP_TipTeslim" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="MHS_KodMuhasebelestirme" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDR_FlagKumas" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagIplik" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagMalzeme" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_AckAlisSiparis" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="TDR_AckTeslimFisi" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="TDR_FlagKontrolAlisSip" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_TutarMaxOtoOnay" Type="float" Nullable="false" />
+          <Property Name="TDR_FlagEgitimci" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_YuzdeFireIplik" Type="float" Nullable="false" />
+          <Property Name="TDR_YuzdeFireOrgu" Type="float" Nullable="false" />
+          <Property Name="TDR_YuzdeFireBoya" Type="float" Nullable="false" />
+          <Property Name="TDR_FlagEFatura" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagTicariEFatura" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagKurFarkiCalistir" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_KodTCKimlikNo" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TDR_AckNaceKod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_AckMersisNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TDR_FlagKurDegerle" Type="tinyint" Nullable="false" />
+          <Property Name="SNR_KodSenaryo" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="USR_KodSorumlu" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="TDR_FlagFtrTutarKontrol" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_OranToleransMax" Type="float" Nullable="false" />
+          <Property Name="TDR_OranToleransMin" Type="float" Nullable="false" />
+          <Property Name="TDR_FlagBirey" Type="tinyint" Nullable="false" />
+          <Property Name="TDR_FlagEIrsaliye" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_FF_LeasingVade_FF_LeasingSozlesme">
+          <End Role="FF_LeasingSozlesme" Type="Self.FF_LeasingSozlesme" Multiplicity="1" />
+          <End Role="FF_LeasingVade" Type="Self.FF_LeasingVade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FF_LeasingSozlesme">
+              <PropertyRef Name="SozlesmeId" />
+            </Principal>
+            <Dependent Role="FF_LeasingVade">
+              <PropertyRef Name="SozlesmeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KOZAModelStoreContainer">
+          <EntitySet Name="FF_LeasingSozlesme" EntityType="Self.FF_LeasingSozlesme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FF_LeasingVade" EntityType="Self.FF_LeasingVade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tyTDR_Tedarikci" EntityType="Self.tyTDR_Tedarikci" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FF_LeasingVade_FF_LeasingSozlesme" Association="Self.FK_FF_LeasingVade_FF_LeasingSozlesme">
+            <End Role="FF_LeasingSozlesme" EntitySet="FF_LeasingSozlesme" />
+            <End Role="FF_LeasingVade" EntitySet="FF_LeasingVade" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KOZAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FF_LeasingSozlesme">
+          <Key>
+            <PropertyRef Name="SozlesmeId" />
+          </Key>
+          <Property Name="SozlesmeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SozlesmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TedarikciKod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TedarikciAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SozlesmeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SozlesmeTutar" Type="Double" Nullable="false" />
+          <Property Name="ParaBirimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vade" Type="Int32" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VadeAraligi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FF_LeasingVade" Relationship="Self.FK_FF_LeasingVade_FF_LeasingSozlesme" FromRole="FF_LeasingSozlesme" ToRole="FF_LeasingVade" />
+        </EntityType>
+        <EntityType Name="FF_LeasingVade">
+          <Key>
+            <PropertyRef Name="SozlesmeId" />
+            <PropertyRef Name="SozlesmeVade" />
+          </Key>
+          <Property Name="SozlesmeId" Type="Int32" Nullable="false" />
+          <Property Name="SozlesmeVade" Type="Int32" Nullable="false" />
+          <Property Name="VadeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="VadeTutar" Type="Double" Nullable="false" />
+          <Property Name="ParaBirimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FF_LeasingSozlesme" Relationship="Self.FK_FF_LeasingVade_FF_LeasingSozlesme" FromRole="FF_LeasingVade" ToRole="FF_LeasingSozlesme" />
+        </EntityType>
+        <EntityType Name="tyTDR_Tedarikci">
+          <Key>
+            <PropertyRef Name="TDR_KodTederikci" />
+          </Key>
+          <Property Name="TDR_KodTederikci" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AdTedarikci" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AdKisa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AckIlgili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKT_KodSektor" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDT_TipTedarikci" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BLG_KodBolge" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDA_KodAdresIRS" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDA_KodAdresFTR" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDA_KodAdresGNL" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AdVergiDairesi" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AdVergiNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Adres1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Adres2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Adres3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Tel1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Tel2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AckWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_FlagSanal" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagFason" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagNakliyeci" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagYurtdisi" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagAktif" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagIsletme" Type="Byte" Nullable="false" />
+          <Property Name="TDR_KodReferans" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRB_BirimPara" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRB_BirimParaFatura" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABR_KodAmbarIplikFason" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABY_KodYerIplikFason" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AST_TipSiparis" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KTG_KodKategori" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ONC_TipOncelik" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ODT_TipOdeme" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TTP_TipTeslim" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MHS_KodMuhasebelestirme" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_FlagKumas" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagIplik" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagMalzeme" Type="Byte" Nullable="false" />
+          <Property Name="TDR_AckAlisSiparis" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AckTeslimFisi" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_FlagKontrolAlisSip" Type="Byte" Nullable="false" />
+          <Property Name="TDR_TutarMaxOtoOnay" Type="Double" Nullable="false" />
+          <Property Name="TDR_FlagEgitimci" Type="Byte" Nullable="false" />
+          <Property Name="TDR_YuzdeFireIplik" Type="Double" Nullable="false" />
+          <Property Name="TDR_YuzdeFireOrgu" Type="Double" Nullable="false" />
+          <Property Name="TDR_YuzdeFireBoya" Type="Double" Nullable="false" />
+          <Property Name="TDR_FlagEFatura" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagTicariEFatura" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagKurFarkiCalistir" Type="Byte" Nullable="false" />
+          <Property Name="TDR_KodTCKimlikNo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AckNaceKod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_AckMersisNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TDR_FlagKurDegerle" Type="Byte" Nullable="false" />
+          <Property Name="SNR_KodSenaryo" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USR_KodSorumlu" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TDR_FlagFtrTutarKontrol" Type="Byte" Nullable="false" />
+          <Property Name="TDR_OranToleransMax" Type="Double" Nullable="false" />
+          <Property Name="TDR_OranToleransMin" Type="Double" Nullable="false" />
+          <Property Name="TDR_FlagBirey" Type="Byte" Nullable="false" />
+          <Property Name="TDR_FlagEIrsaliye" Type="Byte" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_FF_LeasingVade_FF_LeasingSozlesme">
+          <End Role="FF_LeasingSozlesme" Type="Self.FF_LeasingSozlesme" Multiplicity="1" />
+          <End Role="FF_LeasingVade" Type="Self.FF_LeasingVade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FF_LeasingSozlesme">
+              <PropertyRef Name="SozlesmeId" />
+            </Principal>
+            <Dependent Role="FF_LeasingVade">
+              <PropertyRef Name="SozlesmeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KOZAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FF_LeasingSozlesme" EntityType="Self.FF_LeasingSozlesme" />
+          <EntitySet Name="FF_LeasingVade" EntityType="Self.FF_LeasingVade" />
+          <EntitySet Name="tyTDR_Tedarikci" EntityType="Self.tyTDR_Tedarikci" />
+          <AssociationSet Name="FK_FF_LeasingVade_FF_LeasingSozlesme" Association="Self.FK_FF_LeasingVade_FF_LeasingSozlesme">
+            <End Role="FF_LeasingSozlesme" EntitySet="FF_LeasingSozlesme" />
+            <End Role="FF_LeasingVade" EntitySet="FF_LeasingVade" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KOZAModelStoreContainer" CdmEntityContainer="KOZAEntities">
+          <EntitySetMapping Name="FF_LeasingSozlesme">
+            <EntityTypeMapping TypeName="KOZAModel.FF_LeasingSozlesme">
+              <MappingFragment StoreEntitySet="FF_LeasingSozlesme">
+                <ScalarProperty Name="SozlesmeId" ColumnName="SozlesmeId" />
+                <ScalarProperty Name="SozlesmeTarihi" ColumnName="SozlesmeTarihi" />
+                <ScalarProperty Name="TedarikciKod" ColumnName="TedarikciKod" />
+                <ScalarProperty Name="TedarikciAd" ColumnName="TedarikciAd" />
+                <ScalarProperty Name="SozlesmeNo" ColumnName="SozlesmeNo" />
+                <ScalarProperty Name="SozlesmeTutar" ColumnName="SozlesmeTutar" />
+                <ScalarProperty Name="ParaBirimi" ColumnName="ParaBirimi" />
+                <ScalarProperty Name="Vade" ColumnName="Vade" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="VadeAraligi" ColumnName="VadeAraligi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FF_LeasingVade">
+            <EntityTypeMapping TypeName="KOZAModel.FF_LeasingVade">
+              <MappingFragment StoreEntitySet="FF_LeasingVade">
+                <ScalarProperty Name="SozlesmeId" ColumnName="SozlesmeId" />
+                <ScalarProperty Name="SozlesmeVade" ColumnName="SozlesmeVade" />
+                <ScalarProperty Name="VadeTarihi" ColumnName="VadeTarihi" />
+                <ScalarProperty Name="VadeTutar" ColumnName="VadeTutar" />
+                <ScalarProperty Name="ParaBirimi" ColumnName="ParaBirimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tyTDR_Tedarikci">
+            <EntityTypeMapping TypeName="KOZAModel.tyTDR_Tedarikci">
+              <MappingFragment StoreEntitySet="tyTDR_Tedarikci">
+                <ScalarProperty Name="TDR_KodTederikci" ColumnName="TDR_KodTederikci" />
+                <ScalarProperty Name="TDR_AdTedarikci" ColumnName="TDR_AdTedarikci" />
+                <ScalarProperty Name="TDR_AdKisa" ColumnName="TDR_AdKisa" />
+                <ScalarProperty Name="TDR_AckIlgili" ColumnName="TDR_AckIlgili" />
+                <ScalarProperty Name="SKT_KodSektor" ColumnName="SKT_KodSektor" />
+                <ScalarProperty Name="TDT_TipTedarikci" ColumnName="TDT_TipTedarikci" />
+                <ScalarProperty Name="BLG_KodBolge" ColumnName="BLG_KodBolge" />
+                <ScalarProperty Name="TDA_KodAdresIRS" ColumnName="TDA_KodAdresIRS" />
+                <ScalarProperty Name="TDA_KodAdresFTR" ColumnName="TDA_KodAdresFTR" />
+                <ScalarProperty Name="TDA_KodAdresGNL" ColumnName="TDA_KodAdresGNL" />
+                <ScalarProperty Name="TDR_AdVergiDairesi" ColumnName="TDR_AdVergiDairesi" />
+                <ScalarProperty Name="TDR_AdVergiNo" ColumnName="TDR_AdVergiNo" />
+                <ScalarProperty Name="TDR_Adres1" ColumnName="TDR_Adres1" />
+                <ScalarProperty Name="TDR_Adres2" ColumnName="TDR_Adres2" />
+                <ScalarProperty Name="TDR_Adres3" ColumnName="TDR_Adres3" />
+                <ScalarProperty Name="TDR_Tel1" ColumnName="TDR_Tel1" />
+                <ScalarProperty Name="TDR_Tel2" ColumnName="TDR_Tel2" />
+                <ScalarProperty Name="TDR_Fax" ColumnName="TDR_Fax" />
+                <ScalarProperty Name="TDR_Mail" ColumnName="TDR_Mail" />
+                <ScalarProperty Name="TDR_AckWeb" ColumnName="TDR_AckWeb" />
+                <ScalarProperty Name="TDR_FlagSanal" ColumnName="TDR_FlagSanal" />
+                <ScalarProperty Name="TDR_FlagFason" ColumnName="TDR_FlagFason" />
+                <ScalarProperty Name="TDR_FlagNakliyeci" ColumnName="TDR_FlagNakliyeci" />
+                <ScalarProperty Name="TDR_FlagYurtdisi" ColumnName="TDR_FlagYurtdisi" />
+                <ScalarProperty Name="TDR_FlagAktif" ColumnName="TDR_FlagAktif" />
+                <ScalarProperty Name="TDR_FlagIsletme" ColumnName="TDR_FlagIsletme" />
+                <ScalarProperty Name="TDR_KodReferans" ColumnName="TDR_KodReferans" />
+                <ScalarProperty Name="PRB_BirimPara" ColumnName="PRB_BirimPara" />
+                <ScalarProperty Name="PRB_BirimParaFatura" ColumnName="PRB_BirimParaFatura" />
+                <ScalarProperty Name="ABR_KodAmbarIplikFason" ColumnName="ABR_KodAmbarIplikFason" />
+                <ScalarProperty Name="ABY_KodYerIplikFason" ColumnName="ABY_KodYerIplikFason" />
+                <ScalarProperty Name="AST_TipSiparis" ColumnName="AST_TipSiparis" />
+                <ScalarProperty Name="KTG_KodKategori" ColumnName="KTG_KodKategori" />
+                <ScalarProperty Name="ONC_TipOncelik" ColumnName="ONC_TipOncelik" />
+                <ScalarProperty Name="ODT_TipOdeme" ColumnName="ODT_TipOdeme" />
+                <ScalarProperty Name="TTP_TipTeslim" ColumnName="TTP_TipTeslim" />
+                <ScalarProperty Name="MHS_KodMuhasebelestirme" ColumnName="MHS_KodMuhasebelestirme" />
+                <ScalarProperty Name="TDR_FlagKumas" ColumnName="TDR_FlagKumas" />
+                <ScalarProperty Name="TDR_FlagIplik" ColumnName="TDR_FlagIplik" />
+                <ScalarProperty Name="TDR_FlagMalzeme" ColumnName="TDR_FlagMalzeme" />
+                <ScalarProperty Name="TDR_AckAlisSiparis" ColumnName="TDR_AckAlisSiparis" />
+                <ScalarProperty Name="TDR_AckTeslimFisi" ColumnName="TDR_AckTeslimFisi" />
+                <ScalarProperty Name="TDR_FlagKontrolAlisSip" ColumnName="TDR_FlagKontrolAlisSip" />
+                <ScalarProperty Name="TDR_TutarMaxOtoOnay" ColumnName="TDR_TutarMaxOtoOnay" />
+                <ScalarProperty Name="TDR_FlagEgitimci" ColumnName="TDR_FlagEgitimci" />
+                <ScalarProperty Name="TDR_YuzdeFireIplik" ColumnName="TDR_YuzdeFireIplik" />
+                <ScalarProperty Name="TDR_YuzdeFireOrgu" ColumnName="TDR_YuzdeFireOrgu" />
+                <ScalarProperty Name="TDR_YuzdeFireBoya" ColumnName="TDR_YuzdeFireBoya" />
+                <ScalarProperty Name="TDR_FlagEFatura" ColumnName="TDR_FlagEFatura" />
+                <ScalarProperty Name="TDR_FlagTicariEFatura" ColumnName="TDR_FlagTicariEFatura" />
+                <ScalarProperty Name="TDR_FlagKurFarkiCalistir" ColumnName="TDR_FlagKurFarkiCalistir" />
+                <ScalarProperty Name="TDR_KodTCKimlikNo" ColumnName="TDR_KodTCKimlikNo" />
+                <ScalarProperty Name="TDR_AckNaceKod" ColumnName="TDR_AckNaceKod" />
+                <ScalarProperty Name="TDR_AckMersisNo" ColumnName="TDR_AckMersisNo" />
+                <ScalarProperty Name="TDR_FlagKurDegerle" ColumnName="TDR_FlagKurDegerle" />
+                <ScalarProperty Name="SNR_KodSenaryo" ColumnName="SNR_KodSenaryo" />
+                <ScalarProperty Name="USR_KodSorumlu" ColumnName="USR_KodSorumlu" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="TDR_FlagFtrTutarKontrol" ColumnName="TDR_FlagFtrTutarKontrol" />
+                <ScalarProperty Name="TDR_OranToleransMax" ColumnName="TDR_OranToleransMax" />
+                <ScalarProperty Name="TDR_OranToleransMin" ColumnName="TDR_OranToleransMin" />
+                <ScalarProperty Name="TDR_FlagBirey" ColumnName="TDR_FlagBirey" />
+                <ScalarProperty Name="TDR_FlagEIrsaliye" ColumnName="TDR_FlagEIrsaliye" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
