@@ -123,10 +123,6 @@ namespace LeasingProject
                         string mesaj = "Veritabanına Bağlantı Sağlanamadı!";
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
                         DialogResult result = MessageBox.Show(mesaj, "Bağlantı Hatası", buttons, MessageBoxIcon.Warning);
-                        if (result == DialogResult.OK)
-                        {
-
-                        }
                     }
                 }
                 catch (Exception ex)
